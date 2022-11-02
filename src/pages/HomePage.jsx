@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 
 export default function HomePage() {
     return (
-        <div>
+        <div className='app_container'>
             <Navbar />
             <h1>
                 Bienvenido/a

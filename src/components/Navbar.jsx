@@ -1,15 +1,36 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
+function NavLink({to, children}) {
+    return <Link to={to} role={location.pathname===to ? 'button' : ''}>
+        {children}
+    </Link>
+}
+
 export default function Navbar() {
+
     return (
-        <div className='grid'>
-            <Link to="/companies" role="button">
-                Empresas
-            </Link>
-            <Link to="/employees" role="button">
-                Empleados
-            </Link>
-        </div>
+        <nav>
+            <ul>
+                <li><strong>Tu Empleado Perfecto</strong></li>
+            </ul>
+            <ul>
+                <li>
+                    <NavLink to="/">
+                        Home
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/companies">
+                        Empresas
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/employees">
+                        Empleados
+                    </NavLink>
+                </li>
+            </ul>
+        </nav>
     )
 }
