@@ -1,0 +1,6 @@
+version: '3'
+services:
+  front_empleado_perfecto:
+    build: .
+    ports:
+      - '5173:80'
