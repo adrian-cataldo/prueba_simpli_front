@@ -7,8 +7,10 @@ Requerimientos:
 * Node
 
 Instalar dependencias con pnpm i
+
 Inicializar con el comando pnpm start
+
 
 URL:
 
-http://localhost:5173/
+http://localhost:3010/
