@@ -1,9 +1,9 @@
 
-const server = 'http://localhost:8000';
+const server = 'http://localhost:8000'
 
 export async function list() {
-    const data = await fetch(`${server}/api/companies/`);
-    return await data.json();
+    const data = await fetch(`${server}/api/companies/`)
+    return data
 }
 
 export async function create({name, address, rut, phone}) {
@@ -15,5 +15,5 @@ export async function create({name, address, rut, phone}) {
         },
         body: JSON.stringify({name, address, rut, phone})
     });
-    return await data.json();
+    return data
 }

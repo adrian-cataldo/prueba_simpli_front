@@ -1,5 +1,26 @@
 .app_container {
-    max-width: 700px;
+    max-width: 1000px;
     margin: auto;
     padding: 20px;
+}
+
+.button_create {
+    margin-bottom: 40px;
+}
+
+.button_menu {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.input {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.error {
+    width: 100%;
+    color: #c62828;
+    display: inline-block;
+    margin-left: 10px;
 }

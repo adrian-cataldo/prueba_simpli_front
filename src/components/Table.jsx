@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 
 /**
  * headers: array of elements
  * data: array of objects
  * getRow(): a function that converts every item of data to an array
  */
-export default function Table({headers, data, getRow}) {
+export default function Table({headers, data, getRow, className}) {
     return (
-        <table>
+        <table className={className}>
             {headers?.length>0 &&
                 <thead>
                     <tr>

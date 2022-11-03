@@ -1,46 +1,43 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react'
 import Navbar from '../components/Navbar'
 import ModalCompany from '../components/ModalCompany'
 import Table from '../components/Table'
-import {list, create} from '../api/companies_api';
+import {list} from '../api/companies_api'
 
 export default function CompaniesPage() {
-    const [loading, setLoading] = useState(true);
-    const [companies, setCompanies] = useState([]);
-    const [openModalCompany, setOpenModalCompany] = useState(false);
+    const [loading, setLoading] = useState(true)
+    const [companies, setCompanies] = useState([])
+    const modalRef = useRef();
+    const load = useRef(async ()=>{
+        setLoading(true)
+
+        const data = await list()
+        setCompanies(await data.json())
+
+        setLoading(false)
+    })
 
     useEffect(()=>{
-        const load = async () => {
-            setLoading(true)
+        load.current?.()
+    }, [])
 
-            const data = await list()
-            setCompanies(data)
-
-            setLoading(false)
-        }
-        load();
-    }, []);
+    const onAdd = (e) => {
+        e.preventDefault()
+        modalRef.current?.show()
+    }
 
     return (
         <div className='app_container'>
             <Navbar />
-            {openModalCompany &&
-                <ModalCompany
-                    onCancel={()=>setOpenModalCompany(false)}
-                    onConfirm={({name, address, rut, phone}) => {
-                        create({name, address, rut, phone})
-                        setOpenModalCompany(false);
-                    }}
-                />
-            }
+            <ModalCompany ref={modalRef} onSave={()=>load.current?.()}/>
+
+            <h1>Empresas</h1>
+
+            <a onClick={onAdd} href="/#" role="button" className='button_create'>
+                Nueva empresa
+            </a>
 
             <div aria-busy={loading}>
-                <h1>Empresas</h1>
-
-                <a onClick={e=>{e.preventDefault();setOpenModalCompany(true)}} href="/#" role="button">
-                    Nueva empresa
-                </a>
-
                 {companies.length>0 &&
                     <Table
                         headers={['Rut', 'Nombre', 'Dirección', 'Teléfono']}

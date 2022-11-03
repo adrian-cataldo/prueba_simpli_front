@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 function NavLink({to, children}) {
-    return <Link to={to} role={location.pathname===to ? 'button' : ''}>
+    return <Link to={to} role={location.pathname===to ? 'button' : ''} className='button_menu'>
         {children}
     </Link>
 }
