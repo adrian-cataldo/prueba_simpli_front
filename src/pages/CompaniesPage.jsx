@@ -29,7 +29,7 @@ export default function CompaniesPage() {
     return (
         <div className='app_container'>
             <Navbar />
-            <ModalCompany ref={modalRef} onSave={()=>load.current?.()}/>
+            <ModalCompany ref={modalRef} onSave={load.current}/>
 
             <h1>Empresas</h1>
 
