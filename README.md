@@ -13,4 +13,4 @@ Inicializar con el comando pnpm start
 
 URL:
 
-http://localhost:3010/
+http://18.212.251.1:3010/

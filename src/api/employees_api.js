@@ -1,5 +1,6 @@
 
 const server = 'http://localhost:8000'
+//const server = 'http://18.212.251.1:8000'
 
 export async function list(company_id='') {
     return await fetch(`${server}/api/employees/?company_id=${company_id||''}`)
